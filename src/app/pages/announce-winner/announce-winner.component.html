@@ -1,0 +1,124 @@
+<div class="width px-2 mx-5">
+  <div
+    *ngIf="!eventAvailable"
+    class="
+      text-center
+      d-flex
+      justify-content-center
+      align-items-center
+      eventAvailable
+    "
+  >
+    <p>Wait For Events To Get Closed First!!!</p>
+  </div>
+
+
+<!-- List of Events -->
+
+<div class="row">   
+
+  <div class="col-6" *ngFor="let event of eventList">
+      <div class="col-12 announcediv d-flex mb-5">
+        <div class="col-6 divImg">
+          <img [src]="event.picture" alt="No image" />
+        </div>
+        <div class="col-6">
+          <h4 class="text-center mt-1 mb-4">Event Details</h4>
+          <div>
+            <p class="px-3 mb-2">{{event.eventName}}, {{event.location}}</p>
+            <p class="px-3 mb-2">{{event.description}}</p>
+            <p class="px-3 mb-2">Start Date : {{event.startDate | date}}</p>
+            <p class="px-3 mb-2">End Date : {{event.endDate | date}}</p>
+          </div>
+  
+          <!-- Button trigger modal -->
+          <div class="d-flex justify-content-end p-2 mx-2">
+            <button
+              type="button"
+              class="btn btn-success px-3"
+              data-bs-toggle="modal"
+              data-bs-target="#announce"
+            >
+              Announce
+            </button>
+          </div>
+  
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="announce"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Enter Winners Name
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <form #f="ngForm">
+                  <div class="modal-body">
+                    <input
+                      type="text"
+                      name="w1"
+                      class="form-control mb-3"
+                      placeholder="Enter 1st RunnerUp"
+                      [(ngModel)]="w1"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="w2"
+                      class="form-control mb-3"
+                      placeholder="Enter 2nd RunnerUp"
+                      [(ngModel)]="w2"
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="w3"
+                      class="form-control mb-3"
+                      placeholder="Enter 3rd RunnerUp"
+                      [(ngModel)]="w3"
+                      required
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      (click)="clearDataOnDiscard(f)"
+                    >
+                      Discard
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      data-bs-dismiss="modal"
+                      [disabled]="!f.form.valid"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+  
+  </div>
+  
+</div>
+

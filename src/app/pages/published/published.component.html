@@ -1,0 +1,103 @@
+<div class="width">
+  <div class="marginBottom"></div>
+
+  <div
+    *ngIf="!eventAvailable"
+    class="
+      text-center
+      d-flex
+      justify-content-center
+      align-items-center
+      eventAvailable
+    "
+  >
+    <p>Events Not Published Yet!!!</p>
+  </div>
+
+  <div class="row">
+    <div class="col-7">
+      <div class="d-flex flex-column" *ngFor="let event of eventList">
+        <div class="col-12 mb-4 border">
+          <div class="row rowWidth">
+            <div class="col-4 dd">
+              <img [src]="event.picture" alt="No image">
+            </div>
+            <div class="col-8 d-flex flex-column justify-content-between">
+              <div class="d-flex flex-row justify-content-between p-3">
+                <div>
+                  <h6>{{event.eventName}}, {{event.location}}</h6>
+                  <p class="pEdit">{{event.description}}</p>
+                </div>
+                
+              </div>
+              <div class="d-flex justify-content-between p-3">
+                <div>
+                  <p class="pEdit">Start Date : {{event.startDate | date}}</p>
+                  <p class="pEdit">End Date : {{event.endDate | date}}</p>  
+                </div>    
+                <div class="d-flex align-items-end">  
+                  <fa-icon
+                  class="icon px-2"
+                  size="lg"
+                  [icon]="faTrashAlt"
+                ></fa-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="col-5 text-center">
+      <h4>MatchUp section</h4>
+    </div> -->
+  </div>
+
+
+
+  <!-- 
+<div class="row row-cols-1 row-cols-md-1 g-4 marginleft">
+
+  <div class="mx-4 my-5 w-25" *ngFor="let event of eventList">
+    <div class="card borderCard">
+      <img
+        [src]="event.picture"
+        class="card-img-top borderImg"
+        alt="No Image Available"
+      />
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="row" >
+                  <h5 class="card-title">{{ event.eventName }}</h5>           
+                </div>
+                <div class="row">
+                  <span>{{ event.description }}</span>
+                </div>
+                <div class="row">
+                  <span>{{ event.location }}</span>
+                </div>
+                <div class="row">
+                  <span>Event Date : {{ event.eventDate | date }}</span>
+                </div>
+                <div class="row">
+                  <span>Last Date &nbsp; : {{ event.lastDate | date }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-start mb-3 px-3">
+              <a class="btn btn-success px-4"
+              (click)="handleEventDelete(event.maxParticipant)"
+                >Delete &nbsp;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+</div>

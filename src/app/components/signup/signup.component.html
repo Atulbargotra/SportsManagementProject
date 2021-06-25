@@ -1,0 +1,134 @@
+<div class="margintop"> 
+<div class="brand-wrapper">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button
+      type="button"
+      (click)="clickUserButton()"
+      class="btn px-5 border btn-secondary"
+    >
+      User
+    </button>
+
+    <button
+      type="button"
+      (click)="clickAdminButton()"
+      class="btn btn-white px-5 border btn-secondary"
+    >
+      Admin
+    </button>
+  </div>
+</div>
+
+<p class="display-6 login-card-description mt-4">{{ userType }} SignUp</p>
+
+<ng-container *ngIf="formLoad">
+  <form #f="ngForm">
+    <div class="form-group mb-2">
+      <label for="email" class="sr-only py-1 bold">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        [(ngModel)]="Uemail"
+        required
+      />
+      <label for="username" class="sr-only py-1 bold">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="form-control"
+        placeholder="Username"
+        [(ngModel)]="Uusername"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="password" class="sr-only py-1 bold">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        placeholder="***********"
+        [(ngModel)]="Upassword"
+        required
+      />
+    </div>
+    <input
+      name="signup"
+      id="signup"
+      class="btn btn-block login-btn px-5 color my-2 btncolor text-white"
+      type="button"
+      value="SIGN UP"
+      (click)="userSignupButton()"
+      [disabled]="!f.form.valid"
+    />
+  </form>
+</ng-container>
+
+<div *ngIf="!formLoad">
+  <form #f="ngForm">
+    <div class="form-group mb-2">
+      <label for="email" class="sr-only py-1 bold">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        [(ngModel)]="Aemail"
+        required
+      />
+      <label for="username" class="sr-only py-1 bold">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="form-control"
+        placeholder="Username"
+        [(ngModel)]="Ausername"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="password" class="sr-only py-1 bold">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        placeholder="***********"
+        [(ngModel)]="Apassword"
+        required
+      />
+    </div>
+    <div class="form-group mb-2">
+      <label for="adminAccessPassword" class="sr-only py-1 bold"
+        >Admin Access Key</label
+      >
+      <input
+        type="password"
+        name="adminAccessPassword"
+        id="adminAccessPassword"
+        class="form-control"
+        placeholder="***********"
+        [(ngModel)]="adminAccessPassword"
+        required
+      />
+    </div>
+    <input
+      name="signup"
+      id="signup"
+      class="btn btn-block login-btn px-5 color my-2 btncolor text-white"
+      type="button"
+      value="SIGN UP"
+      (click)="adminSignupButton()"
+      [disabled]="!f.form.valid"
+    />
+  </form>
+</div>
+
+</div>

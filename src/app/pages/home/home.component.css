@@ -1,0 +1,18 @@
+.margintop {
+  margin-top: 10%;
+}
+
+.btncolor {
+  background-color: rgb(196, 101, 101);
+}
+
+.bgContent {
+  background-image: url("../../../assets/qwert.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  height: 100vh;
+}
+
+.formBox {
+  margin: 5%;
+}

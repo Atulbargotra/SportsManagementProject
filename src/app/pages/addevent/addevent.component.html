@@ -1,0 +1,401 @@
+<div class="row mt-5 width">
+  <div
+    class="
+      col-2
+      d-flex
+      justify-content-center
+      align-items-center
+      divwidth
+      offset-10
+    "
+  >
+    <!-- Button trigger modal (Add an Event)-->
+    
+    <button
+      type="button"
+      class="btn btn-success btnwidth"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      <span class="spantxt">
+        Add An Event <fa-icon class="icon px-1" [icon]="faPlusCircle"></fa-icon>
+      </span>
+    </button>
+
+    <!-- Modal (On button click this modal will show up) -->
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- card - Add Event -->
+            <div class="card">
+              <div class="imgDim">
+                <img
+                  [src]="picture"
+                  class="card-img-top"
+                  alt="Unable to load Image"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center mb-4">Add Event Details</h5>
+
+                <!-- Add event details form -->
+                <form class="mt-3" #f="ngForm">
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="eventName" class="labeltxt form-label"
+                        >Event Name</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="text"
+                        name="eventName"
+                        id="eventName"
+                        class="form-control txtdim"
+                        [(ngModel)]="eventName"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="description" class="labeltxt form-label"
+                        >Description</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <textarea
+                        type="textarea"
+                        name="description"
+                        id="description"
+                        rows="1"
+                        class="form-control txtdim"
+                        [(ngModel)]="description"
+                        required
+                      >
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="location" class="labeltxt form-label"
+                        >Location</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="text"
+                        name="location"
+                        id="location"
+                        class="form-control txtdim"
+                        [(ngModel)]="location"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="category" class="labeltxt form-label"
+                        >Category</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <select
+                        class="form-select"
+                        aria-label="Default select example"
+                        name="category"
+                        [(ngModel)]="category"
+                        (ngModelChange)="setPicture()"
+                      >
+                        <option selected></option>
+                        <optgroup label="Outdoor">
+                          <option value="cricket">Cricket</option>
+                          <option value="football">Football</option>
+                          <option value="basketball">Basketball</option>
+                          <option value="badmintion">Badmintion</option>
+                          <option value="vollyball">Vollyball</option>
+                        </optgroup>
+                        <optgroup label="Indoor">
+                          <option value="chess">Chess</option>
+                          <option value="tableTennis">TableTennis</option>
+                          <option value="carrom">Carrom</option>
+                          <option value="8ballpool">8 Ball Pool</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="type" class="labeltxt form-label">Type</label>
+                    </div>
+                    <div class="col-8">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="type"
+                          id="individual"
+                          value="individual"
+                          checked
+                          [(ngModel)]="type"
+                          required
+                        />
+                        <label class="form-check-label" for="individual">
+                          Individual
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="type"
+                          id="team"
+                          value="team"
+                          [(ngModel)]="type"
+                          required
+                        />
+                        <label class="form-check-label" for="team">
+                          Team
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="eventDate" class="labeltxt form-label"
+                        >Event Date</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="datetime-local"
+                        name="eventDate"
+                        id="eventDate"
+                        class="form-control txtdim"
+                        [(ngModel)]="startDate"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="lastDate" class="labeltxt form-label"
+                        >End Date</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="datetime-local"
+                        name="lastDate"
+                        id="lastDate"
+                        placeholder="YYYY/MM/DD"
+                        class="form-control txtdim"
+                        [(ngModel)]="endDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-4">
+                      <label for="maxParticipant" class="labeltxt form-label"
+                        >Participants</label
+                      >
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="number"
+                        name="maxParticipant"
+                        id="maxParticipant"
+                        class="form-control txtdim"
+                        [(ngModel)]="maxParticipant"
+                        required
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-around">
+            <button
+              type="button"
+              class="btn btn-secondary px-4"
+              data-bs-dismiss="modal"
+              (click)="clearData(f)"
+            >
+              Discard
+            </button>
+            <button
+              type="button"
+              [disabled]="!f.form.valid"
+              class="btn btn-success px-5"
+              data-bs-dismiss="modal"
+              (click)="handleAddEvents(f)"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- No Event Avaiable Code -->
+
+  <div
+    *ngIf="!eventAvailable"
+    class="
+      text-center
+      d-flex
+      justify-content-center
+      align-items-center
+      eventAvailable
+    "
+  >
+    <p>No Events Available!!!</p>
+  </div>
+
+
+
+  <!-- List Of Events -->
+
+  <div class="row row-cols-1 row-cols-md-1 g-4 marginleft">
+
+    <!-- Looping through Events fetching array of eventlist -->
+    <div class="mx-4 my-3 w-25" *ngFor="let event of eventList">
+      <div class="card borderCard">
+        <img
+          [src]="event.picture"
+          class="card-img-top borderImg"
+          alt="Image not loaded"
+        />
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="row" *ngIf="!event.edit">
+                    <h5 class="card-title col-10">{{ event.eventName }}</h5>
+                    <fa-icon
+                      class="icon col-2"
+                      [icon]="faEdit"
+                      (click)="editEvent(event)"
+                    ></fa-icon>
+                  </div>
+                  <div class="row" *ngIf="event.edit">
+                    <input
+                      type="text"
+                      name="eventName"
+                      placeholder="Event Name"
+                      class="form-control col-12 h-75"
+                      [(ngModel)]="event.eventName"
+                    />
+                  </div>
+                  <div class="row" *ngIf="!event.edit">
+                    <span class="spanEdit">{{ event.description }}</span>
+                  </div>
+                  <div class="row" *ngIf="event.edit">
+                    <input
+                      type="text"
+                      name="description"
+                      placeholder="Description"
+                      class="form-control col-12 h-75"
+                      [(ngModel)]="event.description"
+                    />
+                  </div>
+                  <div class="row" *ngIf="!event.edit">
+                    <span class="spanEdit">{{ event.location }}</span>
+                  </div>
+                  <div class="row" *ngIf="event.edit">
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Location"
+                      class="form-control col-12 h-75"
+                      [(ngModel)]="event.location"
+                    />
+                  </div>
+                  <div class="row" *ngIf="!event.edit">
+                    <span class="spanEdit">Event Date : {{ event.startDate | date }}</span>
+                  </div>
+                  <div class="row" *ngIf="event.edit">
+                    <input
+                      type="datetime-local"
+                      name="eventDate"
+                      placeholder="Event Date"
+                      class="form-control col-12 h-75"
+                      [(ngModel)]="event.startDate"
+                    />
+                  </div>
+                  <div class="row" *ngIf="!event.edit">
+                    <span class="spanEdit">End Date &nbsp; : {{ event.endDate | date }}</span>
+                  </div>
+                  <div class="row" *ngIf="event.edit">
+                    <input
+                      type="datetime-local"
+                      name="lastDate"
+                      placeholder="Last Date"
+                      class="form-control col-12 h-75"
+                      [(ngModel)]="event.endDate"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="!event.edit">
+                <div class="d-flex justify-content-around mb-3">
+                  <button class="btn btn-success"
+                  (click)="publishEvent(event)">
+                    Publish &nbsp;<fa-icon
+                      class="icon try"
+                      [icon]="faUpload"
+                    ></fa-icon>
+                  </button>
+                  <button class="btn btn-secondary"
+                  (click)="handleEventDelete(event.maxParticipant)">
+                    Delete  <fa-icon
+                      class="icon try"
+                      [icon]="faTrashAlt"
+                    ></fa-icon>
+                  </button>
+                </div>
+              </div>
+
+              <div *ngIf="event.edit" class="d-flex justify-content-around">
+                <div class="text-center mb-4">
+                  <button
+                    class="btn btn-secondary px-4"
+                    (click)="editEvent(event)"
+                  >
+                    Cancle
+                  </button>
+                </div>
+                <div class="text-center mb-4">
+                  <button
+                    class="btn btn-success px-4"
+                    (click)="editEvent(event)"
+                  >
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
