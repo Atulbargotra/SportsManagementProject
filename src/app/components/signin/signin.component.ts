@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SigninService } from 'src/app/services/signin.service';
 
+import {SignIn} from '../../Model/signIn'
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -22,8 +24,12 @@ export class SigninComponent implements OnInit {
 
   //sending Login data to server through service and getting back response
   loginButton() {
+    const signIn:SignIn = {
+      username: this.username,
+      password: this.password
+    }
     this.signinService
-      .postLoginDetails(this.username, this.password)
+      .postLoginDetails(signIn)
       .subscribe((data) => {
         //resposne in json       
         let result = JSON.parse(JSON.stringify(data));

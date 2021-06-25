@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {SignIn} from '../Model/signIn'
 @Injectable({
   providedIn: 'root'
 })
@@ -8,12 +9,7 @@ export class SigninService {
   constructor(private http: HttpClient) { }
 
    //sending userlogin data to server using Post method
-   postLoginDetails(username: string, password: string) {
-    return this.http.post(this.url, {    
-      username: username,
-      password: password
-    });
+   postLoginDetails(signIn:SignIn) {
+    return this.http.post(this.url,signIn);
   }
-
-
 }
