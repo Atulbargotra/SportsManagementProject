@@ -29,6 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AnnounceWinnerComponent } from './pages/announce-winner/announce-winner.component';
 import { PublishedComponent } from './pages/published/published.component';
+import { UserheaderComponent } from './layouts/userheader/userheader.component';
+import { EventsComponent } from './pages/events/events.component';
 
 
 
@@ -46,6 +48,8 @@ import { PublishedComponent } from './pages/published/published.component';
     AdminheaderComponent,
     AnnounceWinnerComponent,
     PublishedComponent,
+    UserheaderComponent,
+    EventsComponent,
   ],
   imports: [
     DropdownModule,
