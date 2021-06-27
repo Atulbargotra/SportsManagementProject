@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -9,7 +9,14 @@ export class FilterComponent implements OnInit {
 
   constructor() { }
 
+  @Output() filterValue = new EventEmitter<string>();
+
   ngOnInit(): void {
+  }
+
+  sendFilterValue(value:string){
+    console.log("In Child component : "+value);
+    this.filterValue.emit(value);
   }
 
 }

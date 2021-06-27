@@ -33,6 +33,9 @@ import { UserheaderComponent } from './layouts/userheader/userheader.component';
 import { EventsComponent } from './pages/events/events.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { EventlistComponent } from './components/eventlist/eventlist.component';
+import { ParticipatedEventsComponent } from './pages/participated-events/participated-events.component';
+import { WinnersComponent } from './pages/winners/winners.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -54,6 +57,9 @@ import { EventlistComponent } from './components/eventlist/eventlist.component';
     EventsComponent,
     FilterComponent,
     EventlistComponent,
+    ParticipatedEventsComponent,
+    WinnersComponent,
+    ProfileComponent,
   ],
   imports: [
     DropdownModule,

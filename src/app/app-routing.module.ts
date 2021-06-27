@@ -9,6 +9,9 @@ import { EventsComponent } from './pages/events/events.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PublishedComponent } from './pages/published/published.component';
 import { UserhomeComponent } from './pages/userhome/userhome.component';
+import {ParticipatedEventsComponent} from './pages/participated-events/participated-events.component'
+import { WinnersComponent } from './pages/winners/winners.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -38,9 +41,25 @@ const routes: Routes = [
     component: UserhomeComponent,
     children: [
       {
+        path:'participatedEvents',
+        component: ParticipatedEventsComponent,
+      },
+      {
+        path:'winners',
+        component:WinnersComponent
+      },
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'events',
+        component:EventsComponent
+      },
+      {
         path: '',
         component: EventsComponent,
-      },
+      }
     ],
   },
   {
