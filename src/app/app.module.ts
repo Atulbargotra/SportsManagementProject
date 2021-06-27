@@ -31,6 +31,8 @@ import { AnnounceWinnerComponent } from './pages/announce-winner/announce-winner
 import { PublishedComponent } from './pages/published/published.component';
 import { UserheaderComponent } from './layouts/userheader/userheader.component';
 import { EventsComponent } from './pages/events/events.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { EventlistComponent } from './components/eventlist/eventlist.component';
 
 
 
@@ -50,6 +52,8 @@ import { EventsComponent } from './pages/events/events.component';
     PublishedComponent,
     UserheaderComponent,
     EventsComponent,
+    FilterComponent,
+    EventlistComponent,
   ],
   imports: [
     DropdownModule,
